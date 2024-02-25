@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="system" method="upgrade">
+	<name>plg_system_imageconvertor</name>
+	<author>KWProductions Co.</author>
+	<creationDate>Nov 15 2023</creationDate>
+	<copyright>(C) 2020-2025.Kian William Productions Co. All rights reserved.</copyright>
+	<authorEmail>webarchitect@kwproductions121.ir</authorEmail>
+	<authorUrl>https://kwproductions121.ir</authorUrl>
+	<version>1.0.0</version>
+    <license>GNU General Public License version 2 or later</license>
+	<description><![CDATA[ This plugin is developed by <a href="https://extensions.kwproductions121.ir">KWProductions Co.</a> In case of any problem contact us: webarchitect@kwproductions121.ir<br /> ]]></description>
+    
+	<namespace path="src">Joomla\Plugin\System\Imageconvertor</namespace>
+
+	<files>
+	<folder plugin="imageconvertor">src</folder>
+    <folder>language</folder>	
+    <folder>layouts</folder>
+    <folder>services</folder>
+    <folder>src</folder>
+	<folder>js</folder>	
+    <filename>license.txt</filename>
+	<filename>readme.txt</filename>
+    <filename>index.html</filename>
+	</files>
+      <media folder="media" destination="plg_system_imageconvertor">
+    <folder>js</folder>
+  </media>	
+	<updateservers>
+		<server type="collection" name="imageconvertor"><![CDATA[https://www.extensions.kwproductions121.ir/myextensions.xml]]></server>
+     </updateservers>
+	<config>
+	<fields name="params">
+	    <fieldset name="basic"  addfieldprefix="Joomla\Plugin\System\Imageconvertor\Field">
+      
+        <field name="clear_cache" type="clearcache" />
+        <field name="notallowed_pages" type="text" default="" label="PLG_SYSTEM_IMAGECONVERTOR_NOT_ALLOWED_PAGES_LABEL" description="PLG_SYSTEM_IMAGECONVERTOR_NOT_ALLOWED_PAGES_DESC" />
+
+      
+       
+        <field
+          name="separator"
+          type="text"
+          maxlength="1"
+          pattern="[-_@]$"
+          default="_"
+          required="true"
+          label="PLG_SYSTEM_IMAGECONVERTOR_MORE_FIELDSET_SEPARATOR_LABEL"
+          description="PLG_SYSTEM_IMAGECONVERTOR_MORE_FIELDSET_SEPARATOR_DESC"
+        />
+		 <field
+          name="seofriendly"
+          type="list"
+          label="PLG_SYSTEM_IMAGECONVERTOR_SEO_LABEL"
+          description="PLG_SYSTEM_IMAGECONVERTOR_SEO_DESC"
+          default="1"
+          validate="options"
+        >
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </field>
+		 <field
+          name="excluded"
+          type="text"
+          label="PLG_SYSTEM_IMAGECONVERTOR_EXCLUDED_FILES_LABEL"
+          description="PLG_SYSTEM_IMAGECONVERTOR_EXCLUDED_FILES_DESC"
+        />
+		
+		
+        <field
+          name="sizes"
+          type="text"
+          default="320, 768, 1200"
+          required="true"
+          label="PLG_SYSTEM_IMAGECONVERTOR_MORE_FIELDSET_SIZES_LABEL"
+          description="PLG_SYSTEM_IMAGECONVERTOR_MORE_FIELDSET_SIZES_DESC"
+        />
+        <field
+          name="srcsetSizes"
+          type="text"
+          default=""
+          label="PLG_SYSTEM_IMAGECONVERTOR_MORE_FIELDSET_SRCSETSIZES_LABEL"
+          description="PLG_SYSTEM_IMAGECONVERTOR_MORE_FIELDSET_SRCSETSIZES_DESC"
+        />
+      <field
+          name="preferedDriver"
+          type="list"
+          label="PLG_SYSTEM_IMAGECONVERTOR_MORE_FIELDSET_PREFERED_DRIVER_LABEL"
+          description="PLG_SYSTEM_IMAGECONVERTOR_MORE_FIELDSET_PREFERED_DRIVER_DESC"
+          default="gd"
+          validate="options"
+        >
+          <option value="gd">GD</option>
+          <option value="imagick">Imagick</option>
+        </field>
+        <field
+          name="cleanup"
+          type="radio"
+          layout="joomla.form.field.radio.switcher"
+          default="0"
+          label="PLG_SYSTEM_IMAGECONVERTOR_MORE_FIELDSET_UNINSTALL_LABEL"
+          description="PLG_SYSTEM_IMAGECONVERTOR_MORE_FIELDSET_UNINSTALL_DESC"
+        >
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+      
+      
+        <field
+          name="qualityJPG"
+          type="number"
+          default="85"
+          label="PLG_SYSTEM_IMAGECONVERTOR_QUALITY_FIELDSET_JPG_LABEL"
+          min="1"
+          max="100"
+          step="1"
+          required="true"
+          validate="number"
+          description="PLG_SYSTEM_IMAGECONVERTOR_QUALITY_FIELDSET_JPG_DESC"
+        />
+        <field
+          name="enableWEBP"
+          type="radio"
+          layout="joomla.form.field.radio.switcher"
+          default="1"
+          label="PLG_SYSTEM_IMAGECONVERTOR_QUALITY_FIELDSET_ENABLE_WEBP_LABEL"
+          description="PLG_SYSTEM_IMAGECONVERTOR_QUALITY_FIELDSET_ENABLE_WEBP_DESC"
+        >
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field
+          name="qualityWEBP"
+          type="number"
+          default="60"
+          label="PLG_SYSTEM_IMAGECONVERTOR_QUALITY_FIELDSET_WEBP_LABEL"
+          min="1"
+          max="100"
+          step="1"
+          required="true"
+          validate="number"
+          description="PLG_SYSTEM_IMAGECONVERTOR_QUALITY_FIELDSET_WEBP_LABEL"
+          showon="enableWEBP:1"
+        />
+        <field
+          name="enableAVIF"
+          type="radio"
+          layout="joomla.form.field.radio.switcher"
+          default="0"
+          label="PLG_SYSTEM_IMAGECONVERTOR_QUALITY_FIELDSET_ENABLE_AVIF_LABEL"
+          description="PLG_SYSTEM_IMAGECONVERTOR_QUALITY_FIELDSET_ENABLE_AVIF_DESC"
+        >
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field
+          name="qualityAVIF"
+          type="number"
+          default="40"
+          label="PLG_SYSTEM_IMAGECONVERTOR_QUALITY_FIELDSET_AVIF_LABEL"
+          min="1"
+          max="100"
+          step="1"
+          required="true"
+          validate="number"
+          description="PLG_SYSTEM_IMAGECONVERTOR_QUALITY_FIELDSET_AVIF_DESC"
+          showon="enableAVIF:1"
+        />
+      
+        <field
+          name="scaleUp"
+          type="radio"
+          layout="joomla.form.field.radio.switcher"
+          default="0"
+          label="PLG_SYSTEM_IMAGECONVERTOR_SCALLING_FIELDSET_SCALE_LABEL"
+          description="PLG_SYSTEM_IMAGECONVERTOR_SCALLING_FIELDSET_SCALE_DESC"
+        >
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+            </fieldset>
+
+		</fields>
+	</config>
+</extension>
