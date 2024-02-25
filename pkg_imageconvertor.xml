@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="4.0" method="upgrade">
+  <identifier>pkg:imageconvertor</identifier>
+ <name>imageconvertor Package</name>
+  <packagename>packages</packagename>
+  <author>KWProductions Co.</author>
+  <authorUrl>KWProductions Co.</authorUrl>
+  <creationDate>Jan 2024</creationDate>
+  <copyright>Copyright (C) 2021 KWProductions Co. All rights reserved.</copyright>
+  <license>GNU General Public License version 2 or later; see license.txt</license>
+  <authorEmail>webarchitect@kwproductions121.ir</authorEmail>
+  <version>1.0.0</version>
+  <description>To convert image extensions with non-seo-friendly(eg. .jgp, .gif) to seo-friendly extension (eg. webp) </description>
+  <blockChildUninstall>true</blockChildUninstall>
+  <update>https://extensions.kwproductions121.ir/myextensions.xml</update>
+  <scriptfile>script.php</scriptfile>
+  <files folder="packages">
+    <file type="library" id="lib_ttc">lib_ttc.zip</file>
+    <file type="plugin" id="plg_imageconvertor" group="system">plg_imageconvertor.zip</file>
+  </files>
+  <updateservers>
+    <server type="collection" name="pkg_imageconvertor">https://extensions.kwproductions121.ir/myextensions.xml</server>
+  </updateservers>
+</extension>
