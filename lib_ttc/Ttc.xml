@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="library" method="upgrade" version="4.0">
+  <name>lib_ttc</name>
+  <libraryname>Ttc</libraryname>
+  <author>KWProductions Co.</author>
+  <authorUrl>extensions.kwproductions121.ir</authorUrl>
+  <creationDate>2024</creationDate>
+  <copyright>Copyright (C) 2021 KWProductions Co. All rights reserved.</copyright>
+  <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+  <authorEmail>webarchitect@kwproductions121.ir</authorEmail>
+  <version>1.0.0</version>
+  <description>TTC Common Library</description>
+  <namespace path="src">Ttc</namespace>
+  <files>
+    <folder library="Ttc">language</folder>
+    <folder>src</folder>
+    <filename>Ttc.xml</filename>
+    <filename>license.txt</filename>
+	<filename>index.html</filename>
+  </files>
+</extension>
+
