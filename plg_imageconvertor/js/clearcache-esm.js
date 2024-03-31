@@ -32,7 +32,7 @@ customElements.define('clear-cache-field', class extends HTMLElement {
   }
 
   onClick() {
-    fetch(new URL(`${this.systemPaths.baseFull}index.php?option=com_ajax&type=plugin&plugin=responsive&group=content&method=responsive&format=json&${this.token}=1`), {method: 'POST'})
+    fetch(new URL(`${this.systemPaths.baseFull}index.php?option=com_ajax&type=plugin&plugin=imageconvertor&group=system&method=imageconvertor&format=json&${this.token}=1`), {method: 'POST'})
     .then((response)=>{
       if (!response.ok) throw new Error("HTTP status " + response.status);
       return response.json();
